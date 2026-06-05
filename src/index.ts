@@ -185,7 +185,7 @@ async function handleSlashCommand(
                 const body = await res.text()
                 console.log({
                     type: 'BLOCKER_RESPONSE',
-                    url: endpoint,
+                    url: BLOCKER_ENDPOINT,
                     status: res.status,
                     ok: res.ok,
                     body,
