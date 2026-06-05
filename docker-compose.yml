@@ -1,0 +1,17 @@
+services:
+  pdchelper:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pdc-blocker
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./commands.json:/app/commands.json:ro
+    command: ["sh", "-c", "bun src/deploy-commands.ts && bun src/index.ts"]
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp

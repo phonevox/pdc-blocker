@@ -1,0 +1,7 @@
+[
+    {
+        "name": "ping",
+        "description": "Responde pong.",
+        "response": "Pong!"
+    }
+]
