@@ -106,16 +106,38 @@ O `/atualizar-bloqueador` gera um JWT HS256 assinado com `JWT_TOKEN` (expira em 
 
 ## Executar
 
-```bash
-# desenvolvimento
-bun run dev
+### Desenvolvimento
 
-# registrar comandos no Discord (necessário ao adicionar/remover comandos)
+```bash
+# instalar dependências
+bun install
+
+# registrar os comandos no Discord (rode sempre que adicionar/remover comandos)
 bun run deploy
 
-# produção via Docker
-docker compose up -d
+# iniciar o bot com hot reload
+bun run dev
 ```
+
+### Produção (Docker)
+
+```bash
+# clonar e entrar no repositório
+git clone <repo>
+cd <repo>
+
+# criar o .env a partir do exemplo
+cp .env-example .env
+# edite o .env com os valores corretos
+
+# build e subir o container
+docker compose up -d --build
+
+# acompanhar logs
+docker logs -f pdc-blocker
+```
+
+> O `docker compose up` já executa o `deploy-commands` automaticamente antes de iniciar o bot.
 
 ---
 
